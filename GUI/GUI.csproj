@@ -198,6 +198,14 @@
     <Compile Include="MyUserControls\UC_StudentInfo.Designer.cs">
       <DependentUpon>UC_StudentInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyUserControls\UserControlBlank.cs" />
+    <Compile Include="MyUserControls\UserControlBlank.Designer.cs">
+      <DependentUpon>UserControlBlank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControls\UserControlDays.cs" />
+    <Compile Include="MyUserControls\UserControlDays.Designer.cs">
+      <DependentUpon>UserControlDays.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Resources\294355517_1105843533621186_1411223748583159430_n.jpg" />
@@ -255,6 +263,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyUserControls\UC_StudentInfo.resx">
       <DependentUpon>UC_StudentInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControls\UserControlBlank.resx">
+      <DependentUpon>UserControlBlank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControls\UserControlDays.resx">
+      <DependentUpon>UserControlDays.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
