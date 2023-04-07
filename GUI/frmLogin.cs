@@ -1,6 +1,6 @@
 ﻿using BLL;
+using DTO;
 using GUI.MyCustomControl;
-using Org.BouncyCastle.Math.Field;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -84,7 +84,9 @@ namespace GUI
             btnForgetPass.Font = new Font(btnForgetPass.Font, FontStyle.Regular);
             btnForgetPass.ForeColor = Color.Black;
         }
-        // Đăng nhập
+
+
+
         private void btnSignIn_Click(object sender, EventArgs e)
         {
             if (txtUsername.Texts.ToString() == "" || txtPassword.Texts.ToString() == "")
@@ -93,16 +95,27 @@ namespace GUI
             }
             else
             {
-                string result =  CheckLoginBLL.Check(txtUsername.Texts.ToString(), txtPassword.Texts.ToString());
-                MessageBox.Show(result);
-                dataUser = CheckLoginBLL.getACC(txtUsername.Texts.ToString(), txtPassword.Texts.ToString());
-                frmTeacher frmTeacher = new frmTeacher();
-                frmTeacher.ShowDialog();
-                this.Hide();
+
+                ValidLogin validLogin = new ValidLogin();
+
+                var account = validLogin.login(txtUsername.Texts.ToString(), txtPassword.Texts.ToString());
+                if (account != null)
+                {
+                    if (account.VaiTro == "Quản trị viên")
+                        MessageBox.Show("1 " + account.VaiTro);
+                    else if (account.VaiTro == "Sinh Viên")
+                        MessageBox.Show("2 " + account.VaiTro);
+                    else if (account.VaiTro == "Giáo viên")
+                        MessageBox.Show("3 " + account.VaiTro);
+                }
+                else
+                {
+                    MessageBox.Show("Thất bại");
+                }
 
             }
         }
-
+        
         #region các thuộc tính xử lí form di chuyển
         private bool move;
         private int moveX, moveY;
